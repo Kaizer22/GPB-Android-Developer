@@ -26,7 +26,6 @@ class ActivityC : AppCompatActivity() {
 
     private val onClickCloseStack = View.OnClickListener {
         val i = Intent(this, ActivityA::class.java)
-            .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         startActivity(i)
         finishAffinity()
     }
@@ -40,25 +39,4 @@ class ActivityC : AppCompatActivity() {
         findViewById<Button>(R.id.button_close_c).setOnClickListener(onClickCloseC)
         findViewById<Button>(R.id.button_close_stack).setOnClickListener(onClickCloseStack)
     }
-
-    override fun onStart() {
-        super.onStart()
-        Log.d(TAG, "onStart $this")
-    }
-
-    override fun onPause() {
-        super.onPause()
-        Log.d(TAG, "onPause $this")
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Log.d(TAG, "onResume $this")
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.d(TAG, "onDestroy $this")
-    }
-
 }

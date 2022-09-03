@@ -23,23 +23,4 @@ class ActivityB : AppCompatActivity() {
         findViewById<Button>(R.id.button_open_c).setOnClickListener(onClickStartC)
     }
 
-    override fun onStart() {
-        super.onStart()
-        Log.d(TAG, "onStart $this")
-    }
-
-    override fun onPause() {
-        super.onPause()
-        Log.d(TAG, "onPause $this")
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Log.d(TAG, "onResume $this")
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.d(TAG, "onDestroy $this")
-    }
 }

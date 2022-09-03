@@ -15,12 +15,12 @@ class ActivityA : AppCompatActivity() {
 
     private val onClickStartB = View.OnClickListener {
         val i = Intent(this, ActivityB::class.java)
-            .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         startActivity(i)
     }
 
-    // Для отслеживания текущих задач и стека удобно использовать
+    // Для отслеживания текущих задач и стека использовал
     // adb shell dumpsys activity activities | grep ru.desh.activities | grep Hist
+    // adb shell dumpsys activity activities | grep ru.desh.activities | grep Task
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_a)
@@ -31,25 +31,6 @@ class ActivityA : AppCompatActivity() {
     override fun onNewIntent(intent: Intent?) {
         super.onNewIntent(intent)
         Log.d(TAG, "onNewIntent $this")
-    }
-    override fun onStart() {
-        super.onStart()
-        Log.d(TAG, "onStart $this")
-    }
-
-    override fun onPause() {
-        super.onPause()
-        Log.d(TAG, "onPause $this")
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Log.d(TAG, "onResume $this")
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.d(TAG, "onDestroy $this")
     }
 
 }
