@@ -15,12 +15,14 @@ class ActivityA : AppCompatActivity() {
 
     private val onClickStartB = View.OnClickListener {
         val i = Intent(this, ActivityB::class.java)
+            .setFlags(Intent.FLAG_ACTIVITY_MULTIPLE_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
         startActivity(i)
     }
 
     // Для отслеживания текущих задач и стека использовал
     // adb shell dumpsys activity activities | grep ru.desh.activities | grep Hist
     // adb shell dumpsys activity activities | grep ru.desh.activities | grep Task
+    // https://stackoverflow.com/questions/2442713/view-the-tasks-activity-stack
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_a)

@@ -1,11 +1,10 @@
 package ru.desh.activities
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 
 class ActivityC : AppCompatActivity() {
     companion object {
@@ -18,8 +17,8 @@ class ActivityC : AppCompatActivity() {
     }
     private val onClickStartD = View.OnClickListener {
         val i = Intent(this, ActivityD::class.java)
-            .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
         startActivity(i)
+        finishAffinity()
     }
 
     private val onClickCloseC = View.OnClickListener { finish() }

@@ -18,18 +18,21 @@
             android:exported="false"/>
         <activity
             android:name=".ActivityC"
-            android:exported="false"/>
-        <!-- singleTask для запуска в новом стеке -->
+            android:exported="false"
+            android:taskAffinity=""
+            />
         <activity
             android:name=".ActivityB"
             android:exported="false"
-            android:launchMode="singleTask">
+            android:taskAffinity=""
+            android:launchMode="singleTask"
+            >
         </activity>
-        <!-- singleInstance чтобы избежать дублирования при открытии из C -->
         <activity
             android:name=".ActivityA"
             android:exported="true"
-            android:launchMode="singleInstance">
+            android:taskAffinity=""
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
