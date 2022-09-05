@@ -21,7 +21,12 @@
             android:name=".ReceiverActivity"
             android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.SEND" />
+                <!-- После выбора приложения (пока не нажато "Запомнить выбор")
+                для обработки Intent, исчезает Parcelable содержимое
+                extras в Intent, а при использовании кастомного уникального action, содержимое всегда
+                 доходит до ReceiverActivity и система корркетно обрабатывает Intent
+                 (проверено на устройстве и эмуляторе)-->
+                <action android:name="ru.desh.activity2.sender.SEND_MOVIE" />
                 <category android:name="android.intent.category.DEFAULT"/>
                 <data android:mimeType="text/plain" />
             </intent-filter>

@@ -1,13 +1,10 @@
 package ru.desh.activities2.receiver
 
-import android.content.Context
 import android.os.Bundle
-import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
-import org.w3c.dom.Text
 import ru.desh.domain.Payload
 
 class ReceiverActivity : AppCompatActivity() {

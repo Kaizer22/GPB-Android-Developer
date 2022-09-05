@@ -5,14 +5,13 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import ru.desh.domain.Payload
 import kotlin.random.Random
 
-const val ACTION_SHOW_MOVIE_PAGE = "ru.desh.activities2.sender.SHOW_MOVIE_PAGE"
+const val ACTION_SEND_MOVIE = "ru.desh.activity2.sender.SEND_MOVIE"
 class SenderActivity : AppCompatActivity() {
     companion object{
         const val TAG = "SenderActivity"
@@ -26,9 +25,6 @@ class SenderActivity : AppCompatActivity() {
         private const val GOOGLE_MAPS_PACKAGE = "com.google.android.apps.maps"
         private const val GOOGLE_MAPS_QUERY = "geo:0,0?q=restaurants"
 
-        private const val EXTRA_TITLE = "title"
-        private const val EXTRA_YEAR = "year"
-        private const val EXTRA_DESCRIPTION = "description"
         private const val EXTRA_PAYLOAD = "payload"
 
     }
@@ -94,7 +90,7 @@ class SenderActivity : AppCompatActivity() {
     }
 
     private val onClickOpenReceiver = View.OnClickListener {
-        val i = Intent(Intent.ACTION_SEND)
+        val i = Intent(ACTION_SEND_MOVIE)
         i.type = "text/plain"
         i.addCategory(Intent.CATEGORY_DEFAULT)
 
@@ -103,9 +99,6 @@ class SenderActivity : AppCompatActivity() {
         (rand.nextInt() % 2).apply {
             i.putExtra(EXTRA_PAYLOAD, if (this == 1)  payload1 else payload2)
         }
-        //i.putExtra(EXTRA_TITLE, "test1")
-        //i.putExtra(EXTRA_YEAR, 2016)
-        //i.putExtra(EXTRA_DESCRIPTION, "Test description")
         try {
             startActivity(i)
         } catch (e: ActivityNotFoundException) {
